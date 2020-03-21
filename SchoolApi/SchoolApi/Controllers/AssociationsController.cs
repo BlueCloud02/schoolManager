@@ -1,8 +1,8 @@
-﻿using SchoolApi.Models;
-using SchoolApi.Services;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SchoolApi.Models;
+using SchoolApi.Services;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
 
 //Add doc: https://docs.microsoft.com/fr-fr/aspnet/core/web-api/?view=aspnetcore-3.0#attributes
 

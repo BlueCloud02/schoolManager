@@ -1,15 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SchoolApi.Models;
 using SchoolApi.Services;
@@ -37,6 +30,18 @@ namespace SchoolApi
 
             services.AddSingleton<AssociationService>();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("VueCorsPolicy", builder =>
+                {
+                    builder
+                      .AllowAnyHeader()
+                      .AllowAnyMethod()
+                      .AllowCredentials()
+                      .SetIsOriginAllowed((host) => true);
+                });
+            });
+
             services.AddControllers()
                 .AddNewtonsoftJson(options => options.UseMemberCasing()); ;
         }
@@ -49,6 +54,8 @@ namespace SchoolApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("VueCorsPolicy");
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -59,6 +66,7 @@ namespace SchoolApi
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }

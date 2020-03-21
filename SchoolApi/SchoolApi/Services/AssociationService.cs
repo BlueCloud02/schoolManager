@@ -1,5 +1,5 @@
-﻿using SchoolApi.Models;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
+using SchoolApi.Models;
 using System.Collections.Generic;
 using System.Linq;
 
