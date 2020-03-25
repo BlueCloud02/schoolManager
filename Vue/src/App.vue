@@ -3,7 +3,7 @@
     <header>
       <span><router-link :to="{ name: 'Hello'}">Associations manager</router-link></span>
     </header>
-    <main>
+    <main class="mx-auto">
       <router-view></router-view>
     </main>
   </div>
@@ -37,8 +37,8 @@ header a:hover {
 }
 
 main {
-  text-align: center;
   margin-top: 40px;
+  width: 70%;
 }
 
 header {
