@@ -10,11 +10,11 @@ namespace SchoolApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AssociationsController : ControllerBase
+    public class AssociationController : ControllerBase
     {
         private readonly AssociationService _assoService;
 
-        public AssociationsController(AssociationService assoService)
+        public AssociationController(AssociationService assoService)
         {
             _assoService = assoService;
         }
